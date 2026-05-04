@@ -4,9 +4,9 @@
 
 Any periodic function can be written as an infinite sum of sines and cosines. How quickly does that sum converge to the original function?
 
-The answer depends on the function's smoothness. Jump discontinuities (square wave, sawtooth) cause slow convergence and characteristic ringing near the jumps — the Gibbs phenomenon. Smooth functions (triangle wave, f, g) converge much faster because their Fourier coefficients decay as 1/n² or faster.
+The answer depends on the function's smoothness: smoother functions generally converge faster.
 
-This tool lets you explore that convergence interactively. Use the **N** slider to add harmonics one by one, or press **Animate** to watch convergence in real time. Computation runs entirely in the browser via Pyodide + numpy (Python → WebAssembly) — no server required.
+This program plots Fourier series approximation of some selected function. You can decide how many terms the serie should use, or you can click Animate and watch convergence as the number of terms in the serie increas.
 
 ## Run locally
 
