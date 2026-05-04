@@ -90,7 +90,7 @@ def compute(func_name: str, N: int) -> str:
     })
 
 
-if __name__ == '__main__' and sys.platform != 'emscripten':
+if __name__ == '__main__' and sys.platform != 'emscripten' and 'pyodide' not in sys.modules:
     import os
     import matplotlib.pyplot as plt
 
