@@ -80,6 +80,38 @@ html, body {
   min-width: 0;
   position: relative;
   background: var(--bg);
+  cursor: grab;
+}
+#canvas-wrap.dragging { cursor: grabbing; }
+
+/* Zoom overlay (bottom-right corner) */
+#zoom-controls {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  z-index: 5;
+}
+
+#zoom-controls button {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  font-size: 18px;
+  line-height: 1;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  opacity: 0.85;
+  transition: opacity 0.1s, background 0.1s;
+}
+#zoom-controls button:hover {
+  opacity: 1;
+  background: #21262d;
 }
 
 #plot {
