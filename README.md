@@ -1,4 +1,4 @@
-# Fourier series plots
+# Fourier series approximation
 
 **Live demo:** https://gbettineschi.github.io/foruier-approximations/
 

@@ -109,7 +109,7 @@ if __name__ == '__main__' and sys.platform != 'emscripten' and 'pyodide' not in 
     Ns = [2, 5, 15]
 
     fig, axes = plt.subplots(2, 3, figsize=(15, 8), sharex=True)
-    fig.suptitle('Fourier series plots', fontsize=14)
+    fig.suptitle('Fourier series approximation', fontsize=14)
 
     for ax, (key, (exact_fn, approx_fn, title)) in zip(axes.flat, FUNCTIONS.items()):
         ax.plot(x, exact_fn(x), label='exact', color='#7d8590', linewidth=1.5)
