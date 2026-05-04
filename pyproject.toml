@@ -1,7 +1,7 @@
 [project]
 name = "foruier-approximations"
 version = "0.1.0"
-description = "Fourier series explorer — Python CLI + browser (Pyodide)"
+description = "Fourier series plots — Python CLI + browser (Pyodide)"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = []

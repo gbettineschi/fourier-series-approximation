@@ -1,4 +1,4 @@
-# Fourier Series Explorer
+# Fourier series plots
 
 **Live demo:** https://gbettineschi.github.io/foruier-approximations/
 
