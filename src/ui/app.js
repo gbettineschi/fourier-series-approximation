@@ -54,6 +54,8 @@ function debounce(fn, ms) {
   return (...args) => { clearTimeout(t); t = setTimeout(() => fn(...args), ms); };
 }
 
+let rafId = 0;
+
 // Returns the plot-centre in CSS pixels (depends on current canvas-wrap size)
 function plotCentre() {
   const pw = CANVAS_WRAP.clientWidth  - MAR.left - MAR.right;
@@ -132,7 +134,8 @@ function buildFunctionRadios() {
 function wireControls() {
   N_SLIDER.addEventListener('input', () => {
     N_VALUE.textContent = N_SLIDER.value;
-    debouncedRender();
+    cancelAnimationFrame(rafId);
+    rafId = requestAnimationFrame(render);
   });
 
   ANIMATE_BTN.addEventListener('click', () => {
