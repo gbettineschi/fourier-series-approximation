@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fourier series approximation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="./ui/style.css" />
+</head>
+<body>
+  <header id="topbar">
+    <p class="topbar-title">Fourier series approximation <span class="repo-by">by Gabriele Bettineschi</span></p>
+    <a
+      href="https://github.com/gbettineschi/foruier-approximations"
+      target="_blank"
+      rel="noopener"
+      class="topbar-link"
+    >↗ GitHub</a>
+  </header>
+
+  <div id="layout">
+    <main id="canvas-wrap">
+      <canvas id="plot"></canvas>
+      <div id="status" aria-live="polite">Loading Pyodide…</div>
+      <div id="zoom-controls">
+        <button id="btn-zoom-in"  title="Zoom in">+</button>
+        <button id="btn-zoom-out" title="Zoom out">−</button>
+      </div>
+    </main>
+
+    <aside id="controls">
+      <section class="ctrl-group" id="func-group">
+        <p class="ctrl-label">Function</p>
+        <!-- radio buttons injected by app.js after list_functions() -->
+      </section>
+
+      <hr class="divider" />
+
+      <section class="ctrl-group">
+        <label class="ctrl-label" for="n-slider">
+          Terms &nbsp;<span id="n-value" class="mono">5</span>
+        </label>
+        <input
+          id="n-slider"
+          type="range"
+          min="1"
+          max="50"
+          value="5"
+          disabled
+        />
+      </section>
+
+      <hr class="divider" />
+
+      <section class="ctrl-group">
+        <p class="ctrl-label">Max error</p>
+        <p id="error-display" class="mono accent2">—</p>
+      </section>
+
+      <hr class="divider" />
+
+      <section class="ctrl-group">
+        <button id="animate-btn" class="primary" disabled>Animate</button>
+      </section>
+    </aside>
+  </div>
+
+  <noscript>JavaScript is required to run this demo.</noscript>
+
+  <script type="module" src="./ui/app.js"></script>
+</body>
+</html>

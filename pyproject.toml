@@ -1,0 +1,17 @@
+[project]
+name = "foruier-approximations"
+version = "0.1.0"
+description = "Fourier series approximation — Python CLI + browser (Pyodide)"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = []
+
+[dependency-groups]
+local = ["matplotlib>=3.10", "numpy>=2.2"]
+dev   = ["ruff>=0.11"]
+
+[tool.uv]
+package = false
+
+[tool.ruff]
+fix = true
