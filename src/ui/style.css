@@ -44,6 +44,16 @@ html, body {
   font-weight: 600;
   font-size: 13px;
   color: var(--text);
+  white-space: nowrap;
+}
+
+.repo-by {
+  color: var(--muted);
+  font-weight: 400;
+}
+
+@media (max-width: 699px) {
+  .repo-by { display: block; }
 }
 
 .topbar-link {

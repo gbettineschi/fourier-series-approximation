@@ -1,4 +1,5 @@
 import json
+import sys
 import numpy as np
 
 
@@ -89,8 +90,11 @@ def compute(func_name: str, N: int) -> str:
     })
 
 
-if __name__ == '__main__':
+if __name__ == '__main__' and sys.platform != 'emscripten':
+    import os
     import matplotlib.pyplot as plt
+
+    os.makedirs('output', exist_ok=True)
 
     x = np.linspace(-np.pi, np.pi, 1000)
     Ns = [2, 5, 15]
@@ -107,8 +111,8 @@ if __name__ == '__main__':
         ax.set_xlabel('x')
         ax.axhline(0, color='#30363d', linewidth=0.5)
 
-    # hide unused subplot (2×3 grid, 5 functions)
     axes.flat[-1].set_visible(False)
 
     plt.tight_layout()
+    plt.savefig('output/fourier.png', dpi=200, bbox_inches='tight')
     plt.show()

@@ -84,4 +84,6 @@ end
 # hide unused 6th panel
 plot!(fig[6], legend=false, axis=false, grid=false)
 
+mkpath("output")
+savefig(fig, "output/fourier.png")
 display(fig)
