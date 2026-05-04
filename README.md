@@ -1,4 +1,4 @@
-**[→ Open in browser](https://gbettineschi.github.io/foruier-approximations)**
+**[→ Open in browser](https://gbettineschi.github.io/fourier-series-approximation)**
 
 # Fourier series approximation
 
