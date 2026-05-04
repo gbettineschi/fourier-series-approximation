@@ -68,7 +68,7 @@ FUNCTIONS = {
     'sawtooth': (sawtooth,      sawtooth_N,      'Sawtooth'),
     'triangle': (triangle_wave, triangle_wave_N, 'Triangle |x|'),
     'f':        (f,             f_N,             'f(x) = |x|(π−|x|)'),
-    'g':        (g,             g_N,             'g(x) = x(π∓x)'),
+    'g':        (g,             g_N,             'g(x) = x(π − |x|)'),
 }
 
 

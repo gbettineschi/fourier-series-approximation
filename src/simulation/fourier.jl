@@ -69,7 +69,7 @@ functions = [
     (sawtooth,      sawtooth_N,      "Sawtooth"),
     (triangle_wave, triangle_wave_N, "Triangle |x|"),
     (f,             fN,              "f(x) = |x|(π−|x|)"),
-    (g,             gN,              "g(x) = x(π∓x)"),
+    (g,             gN,              "g(x) = x(π − |x|)"),
 ]
 
 fig = plot(layout=(2, 3), size=(1400, 800), link=:none)
