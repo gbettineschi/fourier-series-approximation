@@ -2,8 +2,6 @@
 
 **Live demo:** https://gbettineschi.github.io/foruier-approximations/
 
-![screenshot](screenshot.png)
-
 Interactive visualization of Fourier series partial sums. Use the **N** slider to add
 harmonics one by one, or press **Animate** to watch convergence in real time.
 
