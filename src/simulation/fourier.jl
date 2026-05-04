@@ -68,7 +68,7 @@ functions = [
     (square_wave,   square_wave_N,   "Square wave"),
     (sawtooth,      sawtooth_N,      "Sawtooth"),
     (triangle_wave, triangle_wave_N, "Triangle |x|"),
-    (f,             fN,              "f(x) = |x|(π−|x|)"),
+    (f,             fN,              "f(x) = |x|(π − |x|)"),
     (g,             gN,              "g(x) = x(π − |x|)"),
 ]
 
