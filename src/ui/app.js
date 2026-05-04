@@ -115,7 +115,6 @@ function buildFunctionRadios() {
 
     radio.addEventListener('change', () => {
       currentFunc = id;
-      resetView();        // y-scale changes per function — reset so view is sane
       debouncedRender();
     });
 
@@ -382,20 +381,23 @@ function drawAxes(pw, ph, mx, my, yLo, yHi) {
   CTX.font         = "11px 'JetBrains Mono', monospace";
   CTX.lineWidth    = 1;
 
-  // x ticks — only draw if the tick is within the plot area horizontally
+  // x ticks — integer multiples of π; skip off-screen and too-dense ones
   CTX.textAlign    = 'center';
   CTX.textBaseline = 'top';
-  const xTicks = [
-    [-Math.PI,     '−π'],
-    [-Math.PI / 2, '−π/2'],
-    [0,            '0'],
-    [ Math.PI / 2, 'π/2'],
-    [ Math.PI,     'π'],
-  ];
+  const xTicks = [];
+  for (let n = -8; n <= 8; n++) {
+    const sign = n < 0 ? '−' : '';
+    const abs  = Math.abs(n);
+    const lbl  = n === 0 ? '0' : sign + (abs === 1 ? 'π' : `${abs}π`);
+    xTicks.push([n * Math.PI, lbl]);
+  }
+  let lastTickPx = -Infinity;
   xTicks.forEach(([xv, lbl]) => {
     const px = mx(xv);
     if (px < MAR.left - 1 || px > MAR.left + pw + 1) return;
-    const ty = Math.max(MAR.top, Math.min(MAR.top + ph, y0));  // clamp tick to plot edge
+    if (px - lastTickPx < 32) return;  // avoid label overlap
+    lastTickPx = px;
+    const ty = Math.max(MAR.top, Math.min(MAR.top + ph, y0));
     CTX.beginPath();
     CTX.moveTo(px, ty - 3);
     CTX.lineTo(px, ty + 3);

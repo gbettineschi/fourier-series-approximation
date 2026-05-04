@@ -76,12 +76,21 @@ def list_functions() -> str:
     return json.dumps([{'id': k, 'label': v[2]} for k, v in FUNCTIONS.items()])
 
 
+def _periodize(x):
+    """Map any real x to the equivalent value in (-π, π] for exact-function evaluation."""
+    return ((x + np.pi) % (2 * np.pi)) - np.pi
+
+
 def compute(func_name: str, N: int) -> str:
     exact_fn, approx_fn, _ = FUNCTIONS[func_name]
-    x = np.linspace(-np.pi, np.pi, 600)
-    y_exact = exact_fn(x)
+    # ±8π gives ~8 visible periods at minimum zoom; partial sums are trig
+    # polynomials so they're inherently periodic — no wrapping needed for them.
+    x = np.linspace(-8 * np.pi, 8 * np.pi, 4800)
+    y_exact = exact_fn(_periodize(x))
     y_approx = approx_fn(x, int(N))
-    error = float(np.max(np.abs(y_exact - y_approx)))
+    # error over one canonical period only
+    mask = (x >= -np.pi) & (x <= np.pi)
+    error = float(np.max(np.abs(y_exact[mask] - y_approx[mask])))
     return json.dumps({
         'x':        x.tolist(),
         'y_exact':  y_exact.tolist(),
