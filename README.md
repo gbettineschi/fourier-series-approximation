@@ -6,7 +6,7 @@ Any periodic function can be written as an infinite sum of sines and cosines. Ho
 
 The answer depends on the function's smoothness: smoother functions generally converge faster.
 
-This program plots Fourier series approximation of some selected function. You can decide how many terms the serie should use, or you can click Animate and watch convergence as the number of terms in the serie increas.
+This program plots Fourier series approximation of some selected function. You can decide how many terms the serie should use, or you can click 'Animate' and watch convergence as the number of terms in the serie increas.
 
 ## Run locally
 
